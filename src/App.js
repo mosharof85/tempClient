@@ -12,6 +12,8 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import Checkout from "./components/Checkout/Checkout";
 import Orders from "./components/Orders/Orders";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ManageProduct from "./components/Admin/ManageProduct/ManageProduct";
 
 export const UserContext = createContext();
 
@@ -23,41 +25,48 @@ function App() {
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
           <Router>
               <Header></Header>
-              <Switch>
 
-                  <Route exact path = '/'>
-                      <Home></Home>
-                  </Route>
+              <div className="main">
+                  <Switch>
 
-                  <Route path = '/home'>
-                      <Home></Home>
-                  </Route>
+                      <Route exact path = '/'>
+                          <Home></Home>
+                      </Route>
 
-                  <Route path = '/login'>
-                      <Login></Login>
-                  </Route>
+                      <Route path = '/home'>
+                          <Home></Home>
+                      </Route>
 
-                  <Route path = '/Admin'>
-                      <Admin></Admin>
-                  </Route>
+                      <Route path = '/login'>
+                          <Login></Login>
+                      </Route>
 
-                  <Route path = '/Checkout'>
-                      <Checkout></Checkout>
-                  </Route>
+                      <PrivateRoute path = '/Admin'>
+                          <Admin></Admin>
+                      </PrivateRoute>
 
-                  <Route path = '/Orders'>
-                      <Orders></Orders>
-                  </Route>
+                      <PrivateRoute path = '/Admin/manage-product'>
+                          <ManageProduct></ManageProduct>
+                      </PrivateRoute>
 
-                  {/*<PrivateRoute path = '/travel/:type'>*/}
-                  {/*    <Travel></Travel>*/}
-                  {/*</PrivateRoute>*/}
+                      <PrivateRoute path = '/Checkout/:email'>
+                          <Checkout></Checkout>
+                      </PrivateRoute>
 
-                  <Route path='*'>
-                      <Home></Home>
-                  </Route>
+                      <PrivateRoute path = '/Orders/:email'>
+                          <Orders></Orders>
+                      </PrivateRoute>
 
-              </Switch>
+                      {/*<PrivateRoute path = '/travel/:type'>*/}
+                      {/*    <Travel></Travel>*/}
+                      {/*</PrivateRoute>*/}
+
+                      <Route path='*'>
+                          <Home></Home>
+                      </Route>
+
+                  </Switch>
+              </div>
 
           </Router>
       </UserContext.Provider>

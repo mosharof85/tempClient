@@ -1,0 +1,37 @@
+.admin{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    height: calc(100vh - 60px);
+}
+
+.admin .left{
+    background-color: #dddddd;
+}
+
+.admin .left ul{
+    margin: 100px 0 0 100px;
+    list-style: none;
+}
+
+.admin .left ul li{
+    margin-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.admin .left ul li::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    content: '';
+    display: inline-block;
+    background-color: #000000;
+    transition: width .3s ease;
+}
+
+.admin .left ul li:hover::after{
+    width: 100%;
+}
