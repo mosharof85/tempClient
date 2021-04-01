@@ -41,9 +41,13 @@ function App() {
                           <Login></Login>
                       </Route>
 
-                      <PrivateRoute path = '/Admin'>
+                      {/*<PrivateRoute path = '/Admin'>*/}
+                      {/*    <Admin></Admin>*/}
+                      {/*</PrivateRoute>*/}
+
+                      <Route path = '/Admin'>
                           <Admin></Admin>
-                      </PrivateRoute>
+                      </Route>
 
                       <PrivateRoute path = '/Admin/manage-product'>
                           <ManageProduct></ManageProduct>
@@ -56,10 +60,6 @@ function App() {
                       <PrivateRoute path = '/Orders/:email'>
                           <Orders></Orders>
                       </PrivateRoute>
-
-                      {/*<PrivateRoute path = '/travel/:type'>*/}
-                      {/*    <Travel></Travel>*/}
-                      {/*</PrivateRoute>*/}
 
                       <Route path='*'>
                           <Home></Home>

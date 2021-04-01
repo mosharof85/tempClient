@@ -4,12 +4,19 @@
     height: calc(100vh - 60px);
 }
 
+@media screen and (max-width: 767px) {
+    .admin{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .admin .left{
     background-color: #dddddd;
 }
 
 .admin .left ul{
-    margin: 100px 0 0 100px;
+    margin: 50px;
     list-style: none;
 }
 
@@ -34,4 +41,31 @@
 
 .admin .left ul li:hover::after{
     width: 100%;
+}
+
+.admin .right form{
+    width: 350px;
+    margin: 50px;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+.admin .right form input{
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.admin .right form input + span{
+    margin-bottom: 10px;
+    color: red;
+}
+
+@media screen and (max-width: 767px){
+    .admin .right form{
+        margin: 50px auto;
+    }
 }
