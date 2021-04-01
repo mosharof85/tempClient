@@ -13,7 +13,7 @@ import Home from "./components/Home/Home";
 import Checkout from "./components/Checkout/Checkout";
 import Orders from "./components/Orders/Orders";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import ManageProduct from "./components/Admin/ManageProduct/ManageProduct";
+import Inventory from "./components/Inventory/Inventory";
 
 export const UserContext = createContext();
 
@@ -49,17 +49,17 @@ function App() {
                           <Admin></Admin>
                       </Route>
 
-                      <PrivateRoute path = '/Admin/manage-product'>
-                          <ManageProduct></ManageProduct>
-                      </PrivateRoute>
+                      <Route path = '/Inventory'>
+                          <Inventory></Inventory>
+                      </Route>
 
-                      <PrivateRoute path = '/Checkout/:email'>
+                      <Route path = '/Checkout/:id'>
                           <Checkout></Checkout>
-                      </PrivateRoute>
+                      </Route>
 
-                      <PrivateRoute path = '/Orders/:email'>
+                      <Route path = '/Orders/:email'>
                           <Orders></Orders>
-                      </PrivateRoute>
+                      </Route>
 
                       <Route path='*'>
                           <Home></Home>

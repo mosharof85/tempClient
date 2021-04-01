@@ -43,35 +43,50 @@
     width: 100%;
 }
 
-.admin .right form{
-    width: 350px;
+.products{
+    display: flex;
+    flex-wrap: wrap;
     margin: 50px;
-    padding: 15px;
-    border: 1px solid #dddddd;
-    display: grid;
-    grid-template-columns: 1fr;
-
 }
 
-.admin .right form input{
+.products .item{
+    width: 100%;
+    display: flex;
+}
+
+.products .item .name,
+.products .item .price,
+.products .item .img,
+.products .item .action
+{
+    flex: 0 0 25%
+}
+.products .item .price,
+.products .item .name,
+.products .item .action{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products .item .price span,
+.products .item .name span{
+    display: inline-block;
+    width: 100%;
+    margin: 0 10px;
     padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
 }
 
-.admin .right form input[type="submit"]{
+.products .item img{
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.products .item button{
     cursor: pointer;
+    padding: 5px 15px;
 }
-
-.admin .right form input + span{
-    margin-bottom: 10px;
-    color: red;
-}
-
-@media screen and (max-width: 767px){
-    .admin .right form{
-        margin: 50px auto;
-    }
-}
-

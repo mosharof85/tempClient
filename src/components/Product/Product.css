@@ -1,0 +1,42 @@
+.home-products .item{
+    display: flex;
+    flex-direction: column;
+    background-color: #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.home-products .item .img{
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.home-products .item .img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-products .item .name{
+    margin: 10px 0;
+    background-color: #ffffff;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.home-products .item .item-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-products .item .item-footer button{
+    padding: 5px 15px;
+    font-size: 15px;
+    cursor: pointer;
+}

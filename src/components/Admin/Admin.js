@@ -14,6 +14,8 @@ const Admin = () => {
 
     const [imgUrl, setImgUrl] = useState(null)
 
+    const [imgLoading, setImgLoading] = useState(false);
+
     const onSubmit = async (data, e) => {
         const productData = {
             name : data.name,
@@ -27,17 +29,21 @@ const Admin = () => {
 
         e.target.reset();
 
+        setIsDirty(true);
+
         if(response.data){
-            alert('ok')
+            alert('Product Added Successfully');
         }
         else{
-            alert('Produt Faied');
+            alert('Something went wrong');
         }
 
     };
 
 
     const  handleImageUpload = async event =>{
+        setImgLoading(true);
+
         const imageData = new  FormData();
         imageData.set('key', '2bbf0ed10cd767f80e53cd1bff7a2ab9');
         imageData.append('image', event.target.files[0]);
@@ -46,6 +52,7 @@ const Admin = () => {
 
         setImgUrl(response.data.data.display_url);
         setIsDirty(false);
+        setImgLoading(false);
     }
 
     return (
@@ -54,7 +61,7 @@ const Admin = () => {
                 <div className="left">
                     <ul>
                         <li><Link to="/Admin">Add Product</Link></li>
-                        <li><Link to="/Admin/manage-product">Manage Product</Link></li>
+                        <li><Link to="/Inventory">Manage Product</Link></li>
                     </ul>
                 </div>
                 <div className="right">
@@ -67,7 +74,11 @@ const Admin = () => {
 
                         <input type="file" name="file" ref={register({ required: true })} onChange={handleImageUpload} />
                         {errors.file && <span>This field is required</span>}
-
+                        {
+                            imgLoading && <p style={{
+                                padding : '10px 0'
+                            }}>Please wait image is uploading to ImgBB..</p>
+                        }
                         <input type="submit" disabled={isDirty} />
                     </form>
                 </div>

@@ -8,7 +8,7 @@ import {UserContext} from "../../App";
 const Header = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser.email);
+
     return (
         <div className="header">
             <div className="container">
